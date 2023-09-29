@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  font-size: 16px;
+}
+
+p,
+h1,
+h2,
+h3,
+button,
+li,
+a {
+  font-size: 1rem;
+  line-height: 1.5em;
+}
+
+body {
+  background-color: hsl(36, 100%, 99%);
+  min-height: 100vh;
+  padding: 2em 0;
+  width: 80vw;
+  margin: auto;
+  display: grid;
+  grid-template-areas: "nav nav nav" "main main aside" "main main aside" "footer footer footer";
+}
+body > * {
+  max-width: 100%;
+}
+body .nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  grid-area: nav;
+  padding: 3em 0;
+}
+body .nav__links li {
+  display: inline-block;
+}
+body .main {
+  grid-area: main;
+}
+body .main__img {
+  width: 100%;
+}
+body .main__img img {
+  width: 100%;
+}
+body .main__text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: unset;
+  gap: 0;
+  padding: 2em 1em;
+}
+body .main__text > * {
+  flex-basis: 50%;
+}
+body .main__text__header h1 {
+  font-size: 3.75rem;
+  font-weight: 800;
+  line-height: 1em;
+  color: hsl(240, 100%, 5%);
+}
+body .main__text__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0;
+  max-height: 100%;
+}
+body .main__text__description p {
+  color: hsl(236, 13%, 42%);
+}
+body .main__text__description button {
+  background-color: hsl(5, 85%, 63%);
+  color: hsl(36, 100%, 99%);
+  padding: 0.75em 2em;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  border: none;
+  outline: none;
+}
+body .aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: unset;
+  align-items: unset;
+  gap: 0;
+  grid-area: aside;
+  background-color: hsl(240, 100%, 5%);
+  padding: 1.5em;
+}
+body .aside h1 {
+  color: hsl(35, 77%, 62%);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+body .aside__items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  flex-basis: 100%;
+}
+body .aside__items__item h2 {
+  color: hsl(36, 100%, 99%);
+}
+body .aside__items__item p {
+  color: hsl(233, 8%, 79%);
+}
+body .footer {
+  grid-area: footer;
+}/*# sourceMappingURL=style.css.map */
