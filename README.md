@@ -4,7 +4,7 @@
 
 ## Welcome 👋
 
-This is a solution to the [News homepage challenge on Frontend Mentor](link). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [News homepage challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/news-homepage-H6SWTa1MFl/). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents 📑
 
@@ -39,9 +39,9 @@ _My solution (Mobile)_
 ![image of mobile solution](./readme-images/mobile.png)
 ### Links 🔗
 
-- Solution repo on github [here]()
+- Solution repo on github [here](https://github.com/BeanyTheCoder/news-homepage-main)
 - Solution link on Front End Mentor: [here]()
-- Live site link: [here]()
+- Live site link: [here](https://beanythecoder.github.io/news-homepage-main/)
 
 ## My process 🏗️
 
