@@ -15,7 +15,7 @@ $very-dark-blue: hsl(240, 100%, 5%);
 }
 
 :root {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 p,
@@ -32,15 +32,18 @@ a {
 body {
   background-color: $off-white;
   min-height: 100vh;
+  width: 100vw;
   padding: 2em 0;
-  width: 80vw;
+  width: 90vw;
   margin: auto;
   display: grid;
+  align-content: center;
   grid-template-areas:
     "nav nav nav"
     "main main aside"
     "main main aside"
-    "footer footer footer";
+    "footer1 footer2 footer3";
+  gap: 2rem;
 
   & > * {
     max-width: 100%;
@@ -50,11 +53,65 @@ body {
   .nav {
     @include flex(row, space-between, center, 0);
     grid-area: nav;
-    padding: 3em 0;
+    margin-bottom: 1.5rem;
 
     &__links {
       li {
         display: inline-block;
+        list-style-type: none;
+
+        & + li {
+          margin-left: 2em;
+        }
+
+        a {
+          text-decoration: none;
+          color: $dark-grayish-blue;
+
+          &:hover {
+            color: $soft-orange;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    button {
+      background-color: transparent;
+      border: 0;
+      font-size: 3rem;
+      cursor: pointer;
+    }
+
+    &__hamburger {
+      display: none;
+      background-color: $off-white;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 70vw;
+      height: 100vh;
+      box-shadow: 0 0 0 1000px hsla(240, 100%, 5%, 0.457);
+
+      li {
+        list-style-type: none;
+        padding: 0.75em 1.5em;
+
+        &:first-child {
+          text-align: right;
+          margin-bottom: 3rem;
+        }
+
+        a {
+          color: $very-dark-blue;
+          text-decoration: none;
+          font-size: 1.2rem;
+
+          &:hover {
+            color: $soft-orange;
+            cursor: pointer;
+          }
+        }
       }
     }
   }
@@ -62,6 +119,7 @@ body {
   // main
   .main {
     grid-area: main;
+    height: fit-content;
 
     &__img {
       width: 100%;
@@ -72,7 +130,7 @@ body {
     }
 
     &__text {
-      @include flex(row, center, unset, 0);
+      @include flex(row, center, unset, 2rem);
       padding: 2em 1em;
 
       & > * {
@@ -89,7 +147,7 @@ body {
       }
 
       &__description {
-        @include flex(column, space-between, flex-start, 0);
+        @include flex(column, space-between, flex-start, 1.5rem);
         max-height: 100%;
 
         p {
@@ -99,11 +157,18 @@ body {
         button {
           background-color: $soft-red;
           color: $off-white;
-          padding: 0.75em 2em;
+          padding: 1em 2em;
+          font-size: 0.9rem;
           text-transform: uppercase;
           letter-spacing: 4px;
           border: none;
           outline: none;
+          line-height: unset;
+
+          &:hover {
+            background-color: $very-dark-blue;
+            cursor: pointer;
+          }
         }
       }
     }
@@ -114,21 +179,40 @@ body {
     @include flex(column, unset, unset, 0);
     grid-area: aside;
     background-color: $very-dark-blue;
-    padding: 1.5em;
+    padding: 1.75em;
 
     h1 {
       color: $soft-orange;
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       margin-bottom: 1.5rem;
     }
 
     &__items {
-      @include flex(column, space-between, center, 0);
+      @include flex(column, space-between, unset, 0);
       flex-basis: 100%;
 
       &__item {
+        border-bottom: 1px solid $dark-grayish-blue;
+        padding: 1.75em 0;
+
+        &:first-of-type {
+          padding-top: 0;
+        }
+
+        &:last-of-type {
+          padding-bottom: 0;
+          border-bottom: 0;
+        }
+
         h2 {
           color: $off-white;
+          font-size: 1.35rem;
+          margin-bottom: 0.25em;
+
+          &:hover {
+            color: $soft-orange;
+            cursor: pointer;
+          }
         }
 
         p {
@@ -140,6 +224,115 @@ body {
 
   // footer
   .footer {
-    grid-area: footer;
+    &__item {
+      @include flex(row, space-between, center, 1rem);
+      height: fit-content;
+      margin-top: 2.5rem;
+
+      &:nth-of-type(1) {
+        grid-area: footer1;
+      }
+
+      &:nth-of-type(2) {
+        grid-area: footer2;
+      }
+
+      &:nth-of-type(3) {
+        grid-area: footer3;
+      }
+
+      &__img {
+        img {
+          height: 100%;
+          width: 100px;
+        }
+      }
+
+      &__text {
+        height: 100%;
+
+        h2 {
+          font-size: 2rem;
+          color: $grayish-blue;
+        }
+
+        h3 {
+          color: $very-dark-blue;
+          font-size: 1.1rem;
+
+          &:hover {
+            color: $soft-red;
+            cursor: pointer;
+          }
+        }
+
+        p {
+          color: $dark-grayish-blue;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    grid-template-areas:
+      "nav"
+      "main"
+      "aside"
+      "footer1"
+      "footer2"
+      "footer3";
+  }
+
+  .nav {
+    margin-bottom: 0 !important;
+
+    &__logo {
+      img {
+        width: 50px !important;
+      }
+    }
+
+    &__links {
+      display: none;
+    }
+
+    &__hamburger.--active {
+      display: block !important;
+    }
+  }
+
+  .main {
+    &__img {
+      img {
+        content: url("./assets/images/image-web-3-mobile.jpg");
+      }
+    }
+
+    &__text {
+      flex-direction: column !important;
+      gap: 1.5rem !important;
+
+      h1 {
+        font-size: 2.75rem !important;
+      }
+    }
+  }
+
+  .aside {
+    h1 {
+      font-size: 2rem !important;
+    }
+  }
+
+  .footer {
+    &__item {
+      margin-top: 0 !important;
+
+      &:first-of-type {
+        margin-top: 1rem !important;
+      }
+    }
   }
 }
